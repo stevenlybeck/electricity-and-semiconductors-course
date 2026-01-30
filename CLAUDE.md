@@ -15,3 +15,9 @@ Always use `uv` for Python interactions:
 When verifying notebooks with `uv run jupyter execute`, judge success by **exit code**, not by log output. Stderr messages like `KeyboardInterrupt caught in kernel` or `ERROR |` lines are often benign — they come from normal kernel lifecycle events (e.g., widget cells in headless mode, kernel shutdown cleanup) and do not indicate notebook failure.
 
 More generally: tools often emit warnings, deprecation notices, and log-level "ERROR" messages to stderr that are **informational, not failures**. Always check the actual exit code and/or structured output before concluding something is broken. A noisy stderr with exit code 0 is a success.
+
+## Generated artifacts
+
+Notebooks should not write files into their own directories. Any `savefig()` or similar output should go into `_output/` (gitignored). A `matplotlibrc` in the repo root sets `savefig.directory: _output` to enforce this when Jupyter is launched from the repo root via `MATPLOTLIBRC=. uv run jupyter lab`.
+
+Prefer `plt.show()` over `plt.savefig()` — notebook cell outputs already capture the figure. Only use `savefig` when you explicitly need a standalone file.

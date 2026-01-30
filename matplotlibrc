@@ -1,0 +1,7 @@
+# Project-wide matplotlib configuration
+# Jupyter picks this up when launched from the repo root.
+#
+# Any plt.savefig("filename.png") call will write into _output/
+# rather than the notebook's directory, keeping generated artifacts
+# out of the source tree.  The _output/ directory is gitignored.
+savefig.directory: _output

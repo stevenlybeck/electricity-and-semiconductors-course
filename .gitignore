@@ -2,7 +2,7 @@
 .DS_Store
 
 # Generated notebook outputs
-*.png
+_output/
 
 # Python-generated files
 __pycache__/
