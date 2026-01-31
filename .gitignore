@@ -4,6 +4,9 @@
 # Generated notebook outputs
 _output/
 
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
 # Python-generated files
 __pycache__/
 *.py[oc]
